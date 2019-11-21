@@ -54,11 +54,9 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
+    public function actionExample2111(){
+        return $this->render('example2111');
+    }
     public function actionIndex()
     {
         return $this->render('index');
