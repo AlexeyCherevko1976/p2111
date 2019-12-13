@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Country;
 
 class SiteController extends Controller
 {
@@ -72,10 +73,15 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-
+$country = Country::findOne('US');
+   //$users = Yii::$app->db->createCommand('SELECT * FROM user')->queryAll();
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            
+            //return $this->goBack();
+            return $this->render('login', [
+            'model' => $model,'country'=>$country,
+            ]);
         }
 
         $model->password = '';
