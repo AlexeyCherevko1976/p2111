@@ -6,6 +6,8 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use app\models\Country;
+use app\models\Cosinus;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
@@ -43,6 +45,10 @@ for($i=0;$i<count($names);$i++)
 echo '/////////////<br>';
 print_r($names);
 
+//$country=new Country();$country->name="bpdrd";$country->save();
+
+//$country = Cosinus::find()->where(['id' => 6])->one();
+//echo $country->name;
 ?>
 
     <?php $form = ActiveForm::begin([
